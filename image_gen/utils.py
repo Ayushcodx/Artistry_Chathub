@@ -5,7 +5,7 @@ import io
 import re
 from time import time
 
-API_TOKEN = "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"  # token in case you want to use private API
+API_TOKEN = "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"  # token in case you want to use a private API
 HEADERS = {
     # "Authorization": f"Bearer {API_TOKEN}",
     "X-Wait-For-Model": "true",
@@ -18,20 +18,12 @@ def generate_image(prompt):
     response = requests.request("POST", API_URL, headers=HEADERS, data=data)
     original_image = Image.open(io.BytesIO(response.content))
 
-    # Resize the image to your desired dimensions (e.g., 300x300)
+    # Resize the image to your desired dimensions (e.g., 500x500)
     resized_image = original_image.resize((500, 500))
 
-    
+    # Convert the image to bytes
+    image_byte_array = io.BytesIO()
+    resized_image.save(image_byte_array, format='PNG')
+    image_content = image_byte_array.getvalue()
 
-    filename = f"{slugify(prompt)}-{int(time())}.png"
-    image_path = f"media/{filename}"  # Assuming you have a 'media' directory in your Django project
-    resized_image.save(image_path)
-
-    return image_path
-
-
-
-def slugify(text):
-    text = re.sub(r"[^\w\s]", "", text)
-    text = re.sub(r"\s+", "-", text)
-    return text
+    return image_content

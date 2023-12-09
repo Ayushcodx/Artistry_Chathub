@@ -120,25 +120,13 @@
 
         <div class="card1">
             {% if generated_image_path %}
-            <img src="{{ generated_image_path }}" alt="Generated Image">
+                <img src="data:image/png;base64,{{ generated_image_path }}" alt="Generated Image">
             {% else %}
-            <div class="no-image-message1">No image generated yet. Enter a prompt and click 'Generate Image'.</div>
+                <div class="no-image-message1">No image generated yet. Enter a prompt and click 'Generate Image'.</div>
             {% endif %}
         </div>
+        
     </div>
-    <!-- To display the error message -->
-{% if error_message %}
-<div class="error-message">{{ error_message }}</div>
-{% else %}
-<div class="card1">
-    {% if generated_image_path %}
-        <img src="{{ generated_image_path }}" alt="Generated Image">
-    {% else %}
-        <div class="no-image-message1">No image generated yet. Enter a prompt and click 'Generate Image'.</div>
-    {% endif %}
-</div>
-{% endif %}
-
     <script>
         function Check_Input1(){
             prompt_text=document.getElementById('prompt').value
