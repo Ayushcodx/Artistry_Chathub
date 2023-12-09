@@ -102,12 +102,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': 'railway',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '1FEFCGGd*FCf3B4CgcE2dbfGEEG1166E',
+        'PASSWORD': 'eD3BFEDaBCAdA26f32g*34eD2BC466cb',
         'HOST': 'viaduct.proxy.rlwy.net', 
-        'PORT': '22727', 
+        'PORT': '49443', 
     }
 }
 # custom User
