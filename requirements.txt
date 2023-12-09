@@ -29,8 +29,4 @@ txaio
 typing_extensions
 urllib3
 zope.interface
-<<<<<<< HEAD
 psycopg2-binary
-=======
-psycopg2-binary
->>>>>>> 3a23a4d71360599ad4f07a72affc36d89a2cb975
