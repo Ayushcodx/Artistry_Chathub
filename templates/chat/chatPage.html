@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chat Application</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      min-width: 357px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .chat-box {
+      height: 400px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .container-wrapper{
+      margin:auto ;
+    
+
+    }
+
+    .input-container-input-img {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      padding: 4px 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    
+
+    }
+    #id_message_send_input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      outline: none;
+    
+    }
+    .icon_emoji {
+      text-align: center;
+      font-size: 25px;
+      margin: auto;
+      margin-right:5px ;
+      padding:6px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+      border-radius: 100%;
+
+
+    }
+    .emoji {
+
+     float: right;
+      margin-top: 10px;
+      height: 0px;
+      width: 350px;
+      background:#f7f7f7;
+      border-radius: 5px solid ;
+      overflow-y: scroll;
+      cursor: pointer;
+    }
+    .emoji ::-webkit-scrollbar {
+      width: 0;
+    }
+
+    .emoji span {
+      margin-left: 10px;
+      font: 26px;
+      transform: 0.5s;
+      cursor: pointer;
+
+
+    }
+
+    .emoji span:hover {
+      font: 28px;
+      border: px solid green;
+      background: transparent;
+    }
+    #id_message_send_button {
+      font-size: 25px;
+      margin: auto;
+      padding: 5px;
+      border: none;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+
+      border-radius: 100%;
+
+    }
+    .message {
+      margin-bottom: 15px;
+    }
+    .message.sent {
+      text-align: right;
+      background-color: RGB(87 207 89);
+      border-radius: 10px;
+      padding-right: 10px;
+      color: white;
+    }
+    .message.received {
+      text-align: left;
+      background-color: rgb(242,99,123);
+      border-radius: 10px;
+      padding-left: 10px;
+      color: white;
+    }
+    .msg_error-div{
+      width: 100%;
+      text-align: center;
+
+
+    }
+    .msg_error {
+      color: red;
+      width: 100%;
+      text-align: center;
+    }
+  
+
+
+   
+  </style>
+</head>
+
+<body>
+
+  {% include 'header.html' %}
+  </br></br></br></br></br> </br></br></br>
+
+  <div class="container">
+    <div class="header">
+      <h1>Welcome to Artistry chat site! {{request.user}}</h1> <!-- request.user ==supersuder -->
+    </div>
+
+    <div class="chat-box" id="id_chat_item_container"></div>
+    <div class="input-container">
+      
+<div class="container-wrapper">
+        <div class="emoji">
+          <span id="emoji41" onclick="emoji(this.id)">&#128518;</span>
+          <span id="emoji42" onclick="emoji(this.id)">&#128519;</span>
+          <span id="emoji43" onclick="emoji(this.id)">&#128520;</span>
+          <span id="emoji44" onclick="emoji(this.id)">&#128521;</span>
+          <span id="emoji45" onclick="emoji(this.id)">&#128522;</span>
+          <span id="emoji46" onclick="emoji(this.id)">&#128523;</span>
+          <span id="emoji47" onclick="emoji(this.id)">&#128524;</span>
+          <span id="emoji48" onclick="emoji(this.id)">&#128525;</span>
+          <span id="emoji49" onclick="emoji(this.id)">&#128526;</span>
+          <span id="emoji50" onclick="emoji(this.id)">&#128527;</span>
+          <span id="emoji51" onclick="emoji(this.id)">&#128528;</span>
+          <span id="emoji53" onclick="emoji(this.id)">&#128529;</span>
+          <span id="emoji54" onclick="emoji(this.id)">&#128530;</span>
+          <span id="emoji55" onclick="emoji(this.id)">&#128531;</span>
+          <span id="emoji56" onclick="emoji(this.id)">&#128532;</span>
+          <span id="emoji57" onclick="emoji(this.id)">&#128533;</span>
+          <span id="emoji58" onclick="emoji(this.id)">&#128534;</span>
+          <span id="emoji59" onclick="emoji(this.id)">&#128535;</span>
+          <span id="emoji60" onclick="emoji(this.id)">&#128536;</span>
+          <span id="emoji61" onclick="emoji(this.id)">&#128537;</span>
+          <span id="emoji62" onclick="emoji(this.id)">&#128538;</span>
+          <span id="emoji63" onclick="emoji(this.id)">&#128539;</span>
+          <span id="emoji50" onclick="emoji(this.id)">&#128527;</span>
+          <span id="emoji51" onclick="emoji(this.id)">&#128528;</span>
+          <span id="emoji53" onclick="emoji(this.id)">&#128529;</span>
+          <span id="emoji54" onclick="emoji(this.id)">&#128530;</span>
+          <span id="emoji55" onclick="emoji(this.id)">&#128531;</span>
+          <span id="emoji56" onclick="emoji(this.id)">&#128532;</span>
+          <span id="emoji57" onclick="emoji(this.id)">&#128533;</span>
+          <span id="emoji58" onclick="emoji(this.id)">&#128534;</span>
+          <span id="emoji59" onclick="emoji(this.id)">&#128535;</span>
+          <span id="emoji60" onclick="emoji(this.id)">&#128536;</span>
+          <span id="emoji61" onclick="emoji(this.id)">&#128537;</span>
+          <span id="emoji62" onclick="emoji(this.id)">&#128538;</span>
+          <span id="emoji63" onclick="emoji(this.id)">&#128539;</span>
+          <span id="emoji10" onclick="emoji(this.id)">&#128567;</span>
+          <span id="emoji11" onclick="emoji(this.id)">&#128566;</span>
+          <span id="emoji12" onclick="emoji(this.id)">&#128565;</span>
+          <span id="emoji13" onclick="emoji(this.id)">&#128564;</span>
+          <span id="emoji14" onclick="emoji(this.id)">&#128563;</span>
+          <span id="emoji15" onclick="emoji(this.id)">&#128562;</span>
+          <span id="emoji16" onclick="emoji(this.id)">&#128561;</span>
+          <span id="emoji17" onclick="emoji(this.id)">&#128560;</span>
+          <span id="emoji18" onclick="emoji(this.id)">&#128559;</span>
+          <span id="emoji19" onclick="emoji(this.id)">&#128558;</span>
+          <span id="emoji20" onclick="emoji(this.id)">&#128557;</span>
+          <span id="emoji21" onclick="emoji(this.id)">&#128556;</span>
+          <span id="emoji22" onclick="emoji(this.id)">&#128555;</span>
+          <span id="emoji23" onclick="emoji(this.id)">&#128554;</span>
+          <span id="emoji24" onclick="emoji(this.id)">&#128553;</span>
+          <span id="emoji25" onclick="emoji(this.id)">&#128552;</span>
+          <span id="emoji26" onclick="emoji(this.id)">&#128551;</span>
+          <span id="emoji27" onclick="emoji(this.id)">&#128550;</span>
+          <span id="emoji1" onclick="emoji(this.id)">&#128576;</span>
+          <span id="emoji2" onclick="emoji(this.id)">&#128575;</span>
+          <span id="emoji3" onclick="emoji(this.id)">&#128574;</span>
+          <span id="emoji4" onclick="emoji(this.id)">&#128573;</span>
+      
+          <span id="emoji8" onclick="emoji(this.id)">&#128569;</span>
+          <span id="emoji9" onclick="emoji(this.id)">&#128568;</span>
+          <span id="emoji28" onclick="emoji(this.id)">&#128549;</span>
+          <span id="emoji29" onclick="emoji(this.id)">&#128548;</span>
+          <span id="emoji30" onclick="emoji(this.id)">&#128547;</span>
+          <span id="emoji31" onclick="emoji(this.id)">&#128546;</span>
+          <span id="emoji32" onclick="emoji(this.id)">&#128545;</span>
+          <span id="emoji33" onclick="emoji(this.id)">&#128544;</span>
+          <span id="emoji34" onclick="emoji(this.id)">&#128543;</span>
+          <span id="emoji35" onclick="emoji(this.id)">&#128542;</span>
+          <span id="emoji36" onclick="emoji(this.id)">&#128541;</span>
+          <span id="emoji37" onclick="emoji(this.id)">&#128540;</span>
+          <span id="emoji38" onclick="emoji(this.id)">&#128515;</span>
+          <span id="emoji39" onclick="emoji(this.id)">&#128516;</span>
+          <span id="emoji40" onclick="emoji(this.id)">&#128517;</span>
+        </div>
+        <div class="input-container-input-img">
+          <input type="text" id="id_message_send_input" placeholder="Type your message...">
+          <span class="icon_emoji" onclick="Show_emoji()"><i class="fa-solid fa-face-smile"></i></span>
+          <span class="button_icon" id="id_message_send_button"><i class="fa fa-paper-plane"
+              aria-hidden="true"></i></span>
+
+        </div>
+        <div class="msg_error-div">
+        <small class="msg_error" id="msg_error"></small>
+      </div>
+         <!-- 
+
+      </div>
+
+    </div> -->
+
+    
+  </div>
+  <script>
+    let click = false
+    function Show_emoji() {
+      if (click == false) {
+        document.getElementsByClassName("emoji")[0].style.height = "142px";
+
+        //document.getElementsByClassName("emiji")[0].style.padding="8px";
+        click = true;
+      }
+      else {
+        document.getElementsByClassName("emoji")[0].style.height = "0px";
+        //document.getElementsByClassName("emiji")[0].style.padding ="0px";
+        click = false;
+      }
+
+    }
+
+
+    function emoji(emoji) {
+      document.getElementById("id_message_send_input").value += document.getElementById(emoji).innerHTML;
+      var as = document.getElementById("emoji").innerHTML;
+      console.log(as)
+    }
+  </script>
+
+  <script>
+    // Your existing WebSocket setup code
+    const chatSocket = new WebSocket("ws://" + window.location.host + "/");
+    chatSocket.onopen = function (e) {
+      console.log("The connection was set up successfully!");
+    };
+    chatSocket.onclose = function (e) {
+      console.log("Something unexpected happened!");
+    };
+
+    document.querySelector("#id_message_send_input").focus();
+    document.querySelector("#id_message_send_input").onkeyup = function (e) {
+      if (e.keyCode == 13) {
+        document.querySelector("#id_message_send_button").click();
+      }
+    };
+
+    document.querySelector("#id_message_send_button").onclick = function (e) {
+      var messageInput = document.querySelector("#id_message_send_input").value;
+      if (messageInput.trim() == '') {
+        msg_error = document.getElementById('msg_error')
+        msg_error.innerHTML = 'Message is empty!'
+        return false
+      }
+      msg_error.innerHTML = ''
+      document.getElementsByClassName("emoji")[0].style.height = "0px";
+      click=false;
+      
+
+      chatSocket.send(JSON.stringify({ message: messageInput, username: "{{request.user.username}}" }));
+      document.querySelector("#id_message_send_input").value = "";
+    };
+
+    chatSocket.onmessage = function (e) {
+      const data = JSON.parse(e.data);
+      var messageDiv = document.createElement("div");
+      messageDiv.className = "message";
+      messageDiv.style.overflow = "hidden";
+
+      if (data.username === "{{request.user.username}}") {
+        messageDiv.classList.add("sent");
+        messageDiv.innerHTML = data.message + " : " + data.username;
+      } else {
+        messageDiv.classList.add("received");
+        messageDiv.innerHTML = data.username + " : " + data.message;
+      }
+
+      document.querySelector("#id_chat_item_container").appendChild(messageDiv);
+
+      document.querySelector("#id_chat_item_container").scrollTop = document.querySelector("#id_chat_item_container").scrollHeight;
+    };
+  </script>
+
+
+</body>
+
+</html>
+
